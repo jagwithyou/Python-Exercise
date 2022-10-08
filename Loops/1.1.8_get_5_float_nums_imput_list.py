@@ -15,7 +15,7 @@ Hint:
 iterates from starting_point to ending point with one increment in each iteration.
 2. Default value of starting_point is 0
 
-Sudo Code:
+Pseudocode:
 1) define a empty list to store the inputs
 2) loop with the range(5)
     2.1) get the input from the user
