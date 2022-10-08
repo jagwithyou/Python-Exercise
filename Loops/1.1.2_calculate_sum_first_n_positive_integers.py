@@ -7,7 +7,7 @@ Expected output : 6
 
 Hint: 1+2+3=6 (you should use a variable to store this pattern before the loop)
 
-Sudo Code:
+Pseudocode:
 1. Read the number
 2. Initialize result variable to 0 to store the sum
 2. iterate the loop with the condition num > 0
