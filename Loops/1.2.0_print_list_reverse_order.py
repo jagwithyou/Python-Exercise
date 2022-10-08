@@ -7,7 +7,7 @@ Expected Output : [4,3,2,1]
 Hint: insert() is used to insert a perticular value to a perticular index of the list
 eg: list_name.insert(index, value)
 
-Sudo Code:
+Pseudocode:
 1) initialize the list
 2) define a empty list to store the result
 3) Loop through the list
