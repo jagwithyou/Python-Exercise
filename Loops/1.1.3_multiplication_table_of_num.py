@@ -12,7 +12,7 @@ Expected Output:
 Hint:
 You can print multiple valus in a print statement.
 
-Sudo code:
+Pseudocode:
 1. Read the number
 2. Initialize a iterator with 1
 2. iterate the loop with the condition iterator <=10
