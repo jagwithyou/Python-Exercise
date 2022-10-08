@@ -6,7 +6,7 @@ WAP to print the following pattern using while loop
 ****
 *****
 
-Sudo Code:
+Pseudocode:
 1. Get the no of line to print
 2. Initialize a counter from 1 
 3. Lopp with the condition while counter <= no of lines
