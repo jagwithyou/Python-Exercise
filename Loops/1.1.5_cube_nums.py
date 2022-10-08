@@ -7,7 +7,7 @@ Expected Output:
 8
 27
 
-Sudo Code:
+Pseudocode:
 1. Read the number
 2. Initialize a iterator with 1
 2. iterate the loop with the condition iterator <=num
