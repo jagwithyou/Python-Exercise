@@ -9,7 +9,7 @@ Hint:
 2. suppose there is a string "Hello" to find the index of any element (Suppose "H") you can use index()
 i.e "Hello".index("H") => 0
 
-Sudo Code:
+Pseudocode:
 1) Read the string
 2) Initialize a empty string variable to store result
 3) Loop through the string
