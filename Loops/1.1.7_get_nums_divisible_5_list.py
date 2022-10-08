@@ -7,7 +7,7 @@ expected output:
 
 Hint: 1. for lool can be used directly to iterate through a list, which will iterate through each value in the list.
 
-Sudo Code:
+Pseudocode:
 1) Initialize the list
 2) Initialize an empty list to store the result
 3) loop through the list using for loop
