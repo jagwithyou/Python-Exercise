@@ -4,7 +4,8 @@ n - int
 Test Case:
 Input : 3
 Expected output : 6
-Hint: 1+2+3=6
+
+Hint: 1+2+3=6 (you should use a variable to store this pattern before the loop)
 
 Sudo Code:
 1. Read the number
