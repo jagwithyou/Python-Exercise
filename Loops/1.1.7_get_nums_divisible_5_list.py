@@ -5,6 +5,8 @@ input = [10,22,35,46]
 expected output:
 [10,35]
 
+Hint: 1. for lool can be used directly to iterate through a list, which will iterate through each value in the list.
+
 Sudo Code:
 1) Initialize the list
 2) Initialize an empty list to store the result
