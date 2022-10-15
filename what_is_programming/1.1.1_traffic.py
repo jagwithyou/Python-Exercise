@@ -1,4 +1,18 @@
-# WAP to get the traffic light color from a input and print the decission
+'''
+WAP that will help a self drive car to take decission in a traffic signal
+
+Input: Red
+Expected output: Stop
+
+Pseudocode:
+1) get the light color
+2) check if the color is Red
+    2.1) print Stop
+3) else check the color is Orange
+    3.1) print Be Ready
+4) else check the color is Green
+    4.1) print Go
+'''
 light_color = input("Enter the color of the traffic light - ")
 
 if light_color == "Red":
