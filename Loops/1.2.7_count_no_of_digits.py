@@ -8,7 +8,9 @@ Pseudocode:
 1) get the number
 2) intialize a variable with 0 to store the result
 3) loop with the condition num >0
-    3.1) increment
+    3.1) increment the result with one
+    3.2) Update the num as num//10
+4) Print result
 '''
 
 num = int(input("Enter the number"))
