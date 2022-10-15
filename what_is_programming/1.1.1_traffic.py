@@ -8,16 +8,16 @@ Pseudocode:
 1) get the light color
 2) check if the color is Red
     2.1) print Stop
-3) else check the color is Orange
+3) check the color is Orange
     3.1) print Be Ready
-4) else check the color is Green
+4) check the color is Green
     4.1) print Go
 '''
 light_color = input("Enter the color of the traffic light - ")
 
 if light_color == "Red":
     print("Stop")
-elif light_color == "Orange":
+if light_color == "Orange":
     print("Be Ready")
-elif light_color == "Green":
+if light_color == "Green":
     print("Go")
