@@ -21,3 +21,9 @@ for value in input_list:
     if value%5==0:
         result.append(value)
 print(result)
+
+
+# we can also use list comprehensation here as well to improve the readability
+input_list = [10,22,35,46]
+result = [val for val in arr if val%5 == 0]
+print(result)
