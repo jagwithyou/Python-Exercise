@@ -1,0 +1,905 @@
+openapi: 3.1.0
+info:
+  title: FastAPI
+  version: 0.1.0
+paths:
+  /users/:
+    post:
+      tags:
+        - users
+      summary: Create User
+      operationId: create_user_users__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /users/{user_id}:
+    put:
+      tags:
+        - users
+      summary: Update User
+      operationId: update_user_users__user_id__put
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: User Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdate'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    get:
+      tags:
+        - users
+      summary: Get User
+      operationId: get_user_users__user_id__get
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: User Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+        - users
+      summary: Delete User
+      operationId: delete_user_users__user_id__delete
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: User Id
+        - name: x-access-token
+          in: header
+          required: true
+          schema:
+            type: string
+            description: The token associated with the user optained from the login API.
+            title: X-Access-Token
+          description: The token associated with the user optained from the login API.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /users/{user_id}/role/{role}:
+    post:
+      tags:
+        - users
+      summary: Add User Role
+      operationId: add_user_role_users__user_id__role__role__post
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: User Id
+        - name: role
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Role
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRoleCreate'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /users/login:
+    post:
+      tags:
+        - users
+      summary: Login
+      operationId: login_users_login_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /users/{user_id}/activate:
+    post:
+      tags:
+        - users
+      summary: Activate User
+      operationId: activate_user_users__user_id__activate_post
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: User Id
+        - name: x-access-token
+          in: header
+          required: true
+          schema:
+            type: string
+            description: The token associated with the user optained from the login API.
+            title: X-Access-Token
+          description: The token associated with the user optained from the login API.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /users/{user_id}/deactivate:
+    post:
+      tags:
+        - users
+      summary: Deactivate User
+      operationId: deactivate_user_users__user_id__deactivate_post
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: User Id
+        - name: x-access-token
+          in: header
+          required: true
+          schema:
+            type: string
+            description: The token associated with the user optained from the login API.
+            title: X-Access-Token
+          description: The token associated with the user optained from the login API.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /books/:
+    post:
+      tags:
+        - books
+      summary: Create Book
+      operationId: create_book_books__post
+      parameters:
+        - name: x-access-token
+          in: header
+          required: true
+          schema:
+            type: string
+            description: The token associated with the user optained from the login API.
+            title: X-Access-Token
+          description: The token associated with the user optained from the login API.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookCreate'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    get:
+      tags:
+        - books
+      summary: Get Books
+      operationId: get_books_books__get
+      parameters:
+        - name: skip
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+            title: Skip
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 10
+            title: Limit
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BookResponse'
+                title: Response Get Books Books  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /books/{book_id}:
+    put:
+      tags:
+        - books
+      summary: Update Book
+      operationId: update_book_books__book_id__put
+      parameters:
+        - name: book_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Book Id
+        - name: x-access-token
+          in: header
+          required: true
+          schema:
+            type: string
+            description: The token associated with the user optained from the login API.
+            title: X-Access-Token
+          description: The token associated with the user optained from the login API.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookUpdate'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+        - books
+      summary: Delete Book
+      operationId: delete_book_books__book_id__delete
+      parameters:
+        - name: book_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Book Id
+        - name: x-access-token
+          in: header
+          required: true
+          schema:
+            type: string
+            description: The token associated with the user optained from the login API.
+            title: X-Access-Token
+          description: The token associated with the user optained from the login API.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Response Delete Book Books  Book Id  Delete
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    get:
+      tags:
+        - books
+      summary: Get Book
+      operationId: get_book_books__book_id__get
+      parameters:
+        - name: book_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Book Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /reviews/:
+    post:
+      tags:
+        - reviews
+      summary: Create Review
+      operationId: create_review_reviews__post
+      parameters:
+        - name: x-access-token
+          in: header
+          required: true
+          schema:
+            type: string
+            description: The token associated with the user optained from the login API.
+            title: X-Access-Token
+          description: The token associated with the user optained from the login API.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewCreate'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /reviews/{review_id}:
+    put:
+      tags:
+        - reviews
+      summary: Update Review
+      operationId: update_review_reviews__review_id__put
+      parameters:
+        - name: review_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Review Id
+        - name: x-access-token
+          in: header
+          required: true
+          schema:
+            type: string
+            description: The token associated with the user optained from the login API.
+            title: X-Access-Token
+          description: The token associated with the user optained from the login API.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewUpdate'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+        - reviews
+      summary: Delete Review
+      operationId: delete_review_reviews__review_id__delete
+      parameters:
+        - name: review_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Review Id
+        - name: x-access-token
+          in: header
+          required: true
+          schema:
+            type: string
+            description: The token associated with the user optained from the login API.
+            title: X-Access-Token
+          description: The token associated with the user optained from the login API.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                title: Response Delete Review Reviews  Review Id  Delete
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /reviews/book/{book_id}:
+    get:
+      tags:
+        - reviews
+      summary: Get Reviews By Book
+      operationId: get_reviews_by_book_reviews_book__book_id__get
+      parameters:
+        - name: book_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Book Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BookUserReviewResponse'
+                title: Response Get Reviews By Book Reviews Book  Book Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /reviews/user/{user_id}:
+    get:
+      tags:
+        - reviews
+      summary: Get Reviews By User
+      operationId: get_reviews_by_user_reviews_user__user_id__get
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: User Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserReviewResponse'
+                title: Response Get Reviews By User Reviews User  User Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /:
+    get:
+      summary: Read Root
+      operationId: read_root__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+components:
+  schemas:
+    BookCreate:
+      properties:
+        title:
+          type: string
+          title: Title
+        author:
+          type: string
+          title: Author
+        genre:
+          type: string
+          title: Genre
+        year_published:
+          type: integer
+          title: Year Published
+        summary:
+          anyOf:
+            - type: string
+          title: Summary
+        book_url:
+          anyOf:
+            - type: string
+          title: Book Url
+      type: object
+      required:
+        - title
+        - author
+        - genre
+        - year_published
+      title: BookCreate
+    BookResponse:
+      properties:
+        title:
+          type: string
+          title: Title
+        author:
+          type: string
+          title: Author
+        genre:
+          type: string
+          title: Genre
+        year_published:
+          type: integer
+          title: Year Published
+        summary:
+          anyOf:
+            - type: string
+          title: Summary
+        book_url:
+          anyOf:
+            - type: string
+          title: Book Url
+        id:
+          type: integer
+          title: Id
+      type: object
+      required:
+        - title
+        - author
+        - genre
+        - year_published
+        - id
+      title: BookResponse
+    BookUpdate:
+      properties:
+        title:
+          type: string
+          title: Title
+        author:
+          type: string
+          title: Author
+        genre:
+          type: string
+          title: Genre
+        year_published:
+          type: integer
+          title: Year Published
+        summary:
+          anyOf:
+            - type: string
+          title: Summary
+        book_url:
+          anyOf:
+            - type: string
+          title: Book Url
+      type: object
+      required:
+        - title
+        - author
+        - genre
+        - year_published
+      title: BookUpdate
+    BookUserReviewResponse:
+      properties:
+        book_id:
+          type: integer
+          title: Book Id
+        review_text:
+          type: string
+          title: Review Text
+        rating:
+          type: integer
+          title: Rating
+        user_id:
+          type: integer
+          title: User Id
+        display_name:
+          type: string
+          title: Display Name
+      type: object
+      required:
+        - book_id
+        - review_text
+        - rating
+        - user_id
+        - display_name
+      title: BookUserReviewResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ReviewCreate:
+      properties:
+        book_id:
+          type: integer
+          title: Book Id
+        review_text:
+          type: string
+          title: Review Text
+        rating:
+          type: integer
+          title: Rating
+      type: object
+      required:
+        - book_id
+        - review_text
+        - rating
+      title: ReviewCreate
+    ReviewResponse:
+      properties:
+        book_id:
+          type: integer
+          title: Book Id
+        review_text:
+          type: string
+          title: Review Text
+        rating:
+          type: integer
+          title: Rating
+        id:
+          type: integer
+          title: Id
+        user_id:
+          type: integer
+          title: User Id
+      type: object
+      required:
+        - book_id
+        - review_text
+        - rating
+        - id
+        - user_id
+      title: ReviewResponse
+    ReviewUpdate:
+      properties:
+        review_text:
+          type: string
+          title: Review Text
+        rating:
+          type: integer
+          title: Rating
+      type: object
+      required:
+        - review_text
+        - rating
+      title: ReviewUpdate
+    UserCreate:
+      properties:
+        full_name:
+          type: string
+          title: Full Name
+        display_name:
+          type: string
+          title: Display Name
+        password:
+          type: string
+          title: Password
+        email:
+          type: string
+          title: Email
+      type: object
+      required:
+        - full_name
+        - display_name
+        - password
+        - email
+      title: UserCreate
+    UserLogin:
+      properties:
+        email:
+          type: string
+          format: email
+          title: Email
+        password:
+          type: string
+          title: Password
+      type: object
+      required:
+        - email
+        - password
+      title: UserLogin
+    UserResponse:
+      properties:
+        id:
+          type: integer
+          title: Id
+        full_name:
+          type: string
+          title: Full Name
+        display_name:
+          type: string
+          title: Display Name
+        email:
+          type: string
+          title: Email
+        account_status:
+          type: boolean
+          title: Account Status
+      type: object
+      required:
+        - id
+        - full_name
+        - display_name
+        - email
+        - account_status
+      title: UserResponse
+    UserReviewResponse:
+      properties:
+        book_id:
+          type: integer
+          title: Book Id
+        book_title:
+          type: string
+          title: Book Title
+        review_text:
+          type: string
+          title: Review Text
+        rating:
+          type: integer
+          title: Rating
+      type: object
+      required:
+        - book_id
+        - book_title
+        - review_text
+        - rating
+      title: UserReviewResponse
+    UserRoleCreate:
+      properties:
+        user_id:
+          type: integer
+          title: User Id
+        role:
+          type: string
+          title: Role
+      type: object
+      required:
+        - user_id
+        - role
+      title: UserRoleCreate
+    UserUpdate:
+      properties:
+        full_name:
+          anyOf:
+            - type: string
+          title: Full Name
+        display_name:
+          anyOf:
+            - type: string
+          title: Display Name
+        password:
+          anyOf:
+            - type: string
+          title: Password
+        email:
+          anyOf:
+            - type: string
+          title: Email
+      type: object
+      title: UserUpdate
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+        - loc
+        - msg
+        - type
+      title: ValidationError
